@@ -21,12 +21,12 @@ var instruments = new Map();
 	instruments.set("drum", "boum-boum");
 	
 // arguments stuff [ from http://stackoverflow.com/questions/4351521/how-do-i-pass-command-line-arguments ]
-if(!map.has(process.argv[2])) {
+if(!instruments.has(process.argv[2])) {
 	throw new Error("Missing or wrong instrument");
 }
 // récupère l'instrument et le son
 var instrument = process.argv[2];
-var sound = map.get(instrument);
+var sound = instruments.get(instrument);
 
 // creation du musicien
 var musician = new Musician(instrument,sound);
@@ -39,8 +39,8 @@ const dgram = require('dgram');
 const client = dgram.createSocket('udp4');
 
 function sendMessage() {
-client.send(message,41234, '239.255.9.7', (err) => {
-	console.log(message + " sent to 239.255.9.7:41234" + );
+client.send(message,0,message.length,41234, '239.255.9.7', (err) => {
+	console.log(message + " sent to 239.255.9.7:41234");
 });
 }
 
