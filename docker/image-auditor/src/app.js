@@ -24,7 +24,8 @@ server.on('message', (msg, rinfo) => {
 });
 
 function checkInactive() {
-	orchestra.removeInactive;
+	console.log("check inactive");
+	orchestra.removeInactive();
 }
 
 // on check chaque 2s, c'est pas opti mais bon
@@ -33,7 +34,8 @@ setInterval(checkInactive,2000);
 // listen to TCP
 const net = require('net');
 var tcpListener = net.createServer(function(socket) {
-	socket.write(orchestra.getJson + '\r\n');
+	var message = orchestra.getJson();
+	socket.write(message + '\r\n');
 	socket.end();
 });
 
