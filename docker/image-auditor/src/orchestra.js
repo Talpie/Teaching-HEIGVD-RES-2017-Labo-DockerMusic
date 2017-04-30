@@ -2,30 +2,30 @@
 * class Orchestra
 */
 
-const Musician = require('./././image-musician/src/musician.js');
+const Musician = require('./musician.js');
 
 // Constructor
-function Ochestra() {
+function Orchestra() {
 	this.musicians = new Map();
 	this.activity = new Map();
 }
 
 // class methods
 // set ecrase si une cle est deja existante
-Ochestra.prototype.add = function(musician) {
+Orchestra.prototype.add = function(musician) {
 	this.musicians.set(musician.getUuid,musician);
 	this.activity.set(musician.getUuid, Date.now);
 }
 
-Ochestra.prototype.get = function(id) {
+Orchestra.prototype.get = function(id) {
 	return this.musicians.get(id);
 }
 
-Ochestra.prototype.remove = function(musician) {
+Orchestra.prototype.remove = function(musician) {
 	return this.musicians.delete(musician.getUuid);
 }
 
-Ochestra.prototype.removeInactive = function() {
+Orchestra.prototype.removeInactive = function() {
 	// loop au travers d'activity
 	this.activity.forEach(function(val,key) {
 		// si un plus vieux que 5 s
@@ -39,7 +39,7 @@ Ochestra.prototype.removeInactive = function() {
 }
 
 Orchestra.prototype.getJson = function() {
-	var array = uneval([...this.musicians.values()]):
+	var array = [this.musicians.values()];
 	console.log(array); // Will show ["clé1", "clé2"]
 	return JSON.stringify(array);
 }
@@ -49,4 +49,4 @@ Orchestra.prototype.getActivity = function(id) {
 }
 
 // export the class
-module.exports = Ochestra;
+module.exports = Orchestra;

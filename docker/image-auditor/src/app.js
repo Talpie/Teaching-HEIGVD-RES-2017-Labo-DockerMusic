@@ -1,7 +1,7 @@
 /*
  * Include our own class
  */
-const Musician = require('./././image-musician/src/musician.js');
+const Musician = require('./musician.js');
 var Orchestra = require('./orchestra.js');
 var orchestra = new Orchestra();
 // listen to the musicans
@@ -12,13 +12,15 @@ const server = dgram.createSocket('udp4');
 server.bind(41234, function() {
 	console.log("join 239.255.9.7:41234 group");
 	server.addMembership("239.255.9.7");
-};
+});
 
 // ecoute les message
 server.on('message', (msg, rinfo) => {
   console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
   var json = JSON.parse(msg);
-  orchestra.add(new Musician(json.uuid,json.instrument, json.sound);
+  var mus = new Musician(json.instrument, json.sound);
+  mus.setUuid(json.uuid);
+  orchestra.add(mus);
 });
 
 function checkInactive() {
@@ -35,4 +37,4 @@ var tcpListener = net.createServer(function(socket) {
 	socket.end();
 });
 
-tcpListener.listen(2205.'127.0.0.1');
+tcpListener.listen(2205);
