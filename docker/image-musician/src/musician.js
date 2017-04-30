@@ -13,12 +13,6 @@ function Musician(instrument, sound) {
 	this.sound = sound;
 }
 
-function Musician(uuid, instrument, sound) {
-	this.uuid = uuid;
-	this.instrument = instrument;
-	this.sound = sound;
-}
-
 // class methods
 Musician.prototype.getInstrument = function() {
 	return this.instrument;
@@ -26,6 +20,10 @@ Musician.prototype.getInstrument = function() {
 
 Musician.prototype.getSound = function() {
 	return this.sound;
+}
+
+Musician.prototype.setUuid = function(uuid) {
+	this.uuid = uuid;
 }
 
 Musician.prototype.getUuid = function() {
