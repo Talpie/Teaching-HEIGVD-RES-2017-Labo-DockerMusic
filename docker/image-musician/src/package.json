@@ -4,6 +4,7 @@
   "description": "Musician, simulates someone who plays an instrument in an orchestra. When the app is started, it is assigned an instrument (piano, flute, etc.). As long as it is running, every second it will emit a sound (well... simulate the emission of a sound: we are talking about a communication protocol). Of course, the sound depends on the instrument.",
   "author": "Tony Clavien",
   "dependencies": {
+    "dgram": "^1.0.1",
     "uuid": "^3.0.1"
   }
 }
