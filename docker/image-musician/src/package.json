@@ -2,7 +2,6 @@
   "name": "musician",
   "version": "1.0.0",
   "description": "Musician, simulates someone who plays an instrument in an orchestra. When the app is started, it is assigned an instrument (piano, flute, etc.). As long as it is running, every second it will emit a sound (well... simulate the emission of a sound: we are talking about a communication protocol). Of course, the sound depends on the instrument.",
-  "main": "musician.js",
   "author": "Tony Clavien",
   "dependencies": {
     "uuid": "^3.0.1"

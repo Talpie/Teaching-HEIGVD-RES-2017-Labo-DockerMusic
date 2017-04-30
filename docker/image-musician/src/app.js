@@ -1,14 +1,5 @@
 /*
- * Include standard and third-party npm modules
- => todo see if necessary
-
-var net = require('net');
-var async = require("async");
-var expect = require('chai').expect;*/
-
-
-/*
- * Include our own utility module
+ * Include our own class
  */
 var Musician = require('./musician.js');
 
